@@ -1,13 +1,36 @@
 Ruby Revision Notes:
 ---------------------
-Truthy and falsy in Ruby:
 
+CSRF (Cross-Site Request Forgery), here's a concise summary:
+CSRF Overview:
+1. CSRF is a type of attack where an attacker tricks a user into unintentionally submitting a request to a web application on which the user is authenticated.
+Rails includes built-in protection mechanisms against CSRF attacks.
+CSRF Token:
+----------
+Rails generates a unique CSRF token for each session and stores it in the session.
+When rendering forms in views, Rails automatically injects a hidden field containing the CSRF token into the form HTML.
+Upon form submission, the CSRF token is included in the request payload.
+
+Verification:
+-------------
+When a request is received, Rails compares the CSRF token included in the request with the one stored in the session.
+If the tokens match, the request is considered legitimate; otherwise, it is rejected.
+Rails automatically rotates the CSRF token on each request to enhance security.
+Implementation:
+--------------
+To implement CSRF protection in Rails, developers typically don't need to do anything as it's enabled by default.
+CSRF protection applies to all non-GET requests (e.g., POST, PUT, DELETE).
+Developers can exclude CSRF protection for specific controller actions, such as those handling API requests.
+<%csrf_meta_tags%> in layout
+form_authenticity_token in form
+
+Truthy and falsy in Ruby:
+-------------------------
 1.The only false values in Ruby are the values nil and false themselves.
 2.If you have experience with other programming languages, you might be familiar with the number 0 or an empty string (“”) being equivalent to false. This isn’t the case with Ruby, so be careful when writing those expressions, or you’ll have more bugs than a decomposing body.
 
 Using present?:
 ---------------
-
 Use present? when you need to check if an object is present or not, meaning it is not nil and not blank (empty string, empty array, etc.).
 It's commonly used in conditionals to determine whether to proceed with certain actions based on the existence of an object.
 ruby
