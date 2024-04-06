@@ -1,7 +1,26 @@
 Ruby Revision Notes:
 ---------------------
 
+strings and symbols differ in several key aspects:
+-------------------------------------------------
+
+Mutability: Strings are mutable, while symbols are immutable.
+Memory Usage: Strings consume more memory as they are mutable and unique instances. Symbols are more memory-efficient since they are immutable and unique.
+Usage: Strings are ideal for representing variable data like user input, messages, etc. Symbols are commonly used as identifiers, such as keys in hashes or method names.
+Syntax: Strings are enclosed in quotes ("") or (''), while symbols are prefixed with a colon (:).
+# String
+str1 = "hello"
+str2 = "hello"
+puts str1.object_id == str2.object_id  # false, different objects
+
+# Symbol
+sym1 = :hello
+sym2 = :hello
+puts sym1.object_id == sym2.object_id  # true, same object
+
+_________________________________________________________________________
 CSRF (Cross-Site Request Forgery), here's a concise summary:
+_________________________________________________________________________
 CSRF Overview:
 1. CSRF is a type of attack where an attacker tricks a user into unintentionally submitting a request to a web application on which the user is authenticated.
 Rails includes built-in protection mechanisms against CSRF attacks.
