@@ -1,0 +1,30 @@
+About params:
+---------------------------------------------------------------------------------------------------------
+   params is a hash-like object that contains all the parameters sent in an HTTP request.
+  These parameters can originate from various sources such as form submissions, query strings, URL segments,
+   and even request headers. The params object is essential for accessing and processing user input securely 
+  and efficiently in Rails controllers. It allows developers to retrieve and manipulate data submitted by users, 
+  facilitating actions like creating, updating, or deleting resources. Additionally, 
+  Rails provides mechanisms like strong parameters to enhance security by permitting only specified attributes
+   for mass assignment. Overall, params is a fundamental component in handling user input within Ruby on Rails
+   applications.
+_______________________________________________________________________________________________________
+Parameter Permitting in Rails:
+------------------------------------------------------------------------------------------------------
+  Essential for security.
+  Use permit method in controllers.
+  Specify allowed parameters for mass assignment.
+  Security Measure:
+  Prevents unauthorized data modification.
+  Only permitted attributes are updated or created.
+  Ignoring Unpermitted Parameters:
+  Rails disregards unpermitted parameters.
+  Ensures data integrity.
+  def create
+    @user = User.new(user_params)
+  end
+  private
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
+-----------------------------------------------------------------------------------------------------------
