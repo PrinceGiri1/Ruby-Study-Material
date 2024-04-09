@@ -1,4 +1,4 @@
-About params:
+1. About params:
 ---------------------------------------------------------------------------------------------------------
    params is a hash-like object that contains all the parameters sent in an HTTP request.
   These parameters can originate from various sources such as form submissions, query strings, URL segments,
@@ -9,7 +9,7 @@ About params:
    for mass assignment. Overall, params is a fundamental component in handling user input within Ruby on Rails
    applications.
 _______________________________________________________________________________________________________
-Parameter Permitting in Rails:
+2. Parameter Permitting in Rails:
 ------------------------------------------------------------------------------------------------------
   Essential for security.
   Use permit method in controllers.
@@ -28,3 +28,32 @@ Parameter Permitting in Rails:
     params.require(:user).permit(:name, :email)
   end
 -----------------------------------------------------------------------------------------------------------
+3. Difference between PUT and PATCH
+-----------------------------------------------------------------------------------------------------------
+Difference between PUT and PATCH is in how they handle updates to resources. 
+PUT is used for replacing the entire resource, while PATCH is used for applying partial modifications to a resource.
+Both methods are important in RESTful APIs, and the choice between them depends on the specific requirements of your 
+application.
+--------------------------------------------------------------------------------------------------------------
+4. delegate
+--------------------------------------------------------------------------------------------------------------
+   class User < ApplicationRecord
+     has_one :profile
+     delegate :full_name, to: :profile
+   end
+   
+   class Profile < ApplicationRecord
+     belongs_to :user
+   
+     def full_name
+       "#{first_name} #{last_name}"
+     end
+   end
+In summary, delegate in Ruby on Rails is a powerful tool for delegating method calls between objects, especially in
+ActiveRecord associations, to keep your code DRY (Don't Repeat Yourself) and maintainable.
+--------------------------------------------------------------------------------------------------------------
+5. Delete Vs Destroy
+--------------------------------------------------------------------------------------------------------------
+Use delete if you want to quickly remove records from the database without triggering callbacks or validations.
+Use destroy if you need to ensure that all associated callbacks and validations are executed during the deletion
+process, even if it's slower.
