@@ -1,5 +1,8 @@
 Ruby Revision Notes:
 ---------------------
+In summary, puts is for human-readable output with a newline added automatically, print is for printing multiple 
+items on the same line without adding a newline, and p is for debugging, providing a detailed representation of 
+an object and always printing a newline after the output.
 
 strings and symbols differ in several key aspects:
 -------------------------------------------------
@@ -232,6 +235,8 @@ Yield: The yield keyword passes control from the method to the block, executes t
 Lamda Function:
 --------------
   my_lamda = -> (a,b) { a + b }
+  or 
+  my_lambda = lambda { |a, b| a + b }
   my_lamda.call(5,4) ==== 9
   my_lamda.(5,4) ---:> 9
   my_lamda[5,4]
