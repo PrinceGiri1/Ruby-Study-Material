@@ -31,6 +31,17 @@ Some common callbacks include:
 7) before_destroy: Called before an object is destroyed (deleted) from the database. This is useful for performing cleanup tasks or checking for dependencies before deletion.
 8) after_destroy: Called after an object has been destroyed from the database. This is often used for triggering additional cleanup actions or updating related records.
 and many more...```
+Differences bt afer_save and after commit
+Timing:
+after_save: Runs immediately after the record is saved to the database, but before the transaction is committed.
+after_commit: Runs only after the transaction is successfully committed.
+Transaction Awareness:
+after_save: Does not wait for the transaction to be committed, so it can run even if the transaction eventually fails.
+after_commit: Runs only if the transaction is successful, ensuring the changes are permanent.
+Use Case:
+after_save: Useful for actions that should occur immediately after saving a record, regardless of transaction success (e.g., updating related data in-memory).
+after_commit: Ideal for actions that should only occur if the transaction is fully successful (e.g., sending emails, processing payments).
+
 Associations:
  Active Record Associations in Ruby on Rails provide a way to define relationships between different models in your application.
  These associations allow you to perform operations like querying, creating, updating, and deleting related records more easily and efficiently.
