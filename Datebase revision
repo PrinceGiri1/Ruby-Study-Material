@@ -1,4 +1,9 @@
-DDL => Data Definiation Language 
+DDL => Data Definiation Language
+DCl => Data Control Language
+DML => Data Manupulation Language
+TCL => Transaction Control Language
+DQL => Data Query language
+
 List of DDL commands: 
   CREATE: This command is used to create the database or its objects (like table, index, function, views, store procedure, and triggers).
   DROP: This command is used to delete objects from the database.
@@ -7,7 +12,6 @@ List of DDL commands:
   COMMENT: This is used to add comments to the data dictionary.
   RENAME: This is used to rename an object existing in the database.
 DML => Data Manupulation Language
-    List of DML commands: 
     INSERT: It is used to insert data into a table.
     UPDATE: It is used to update existing data within a table.
     DELETE: It is used to delete records from a database table.
@@ -22,14 +26,13 @@ DCl => Data Control Language
       REVOKE: This command withdraws the user’s access privileges given by using the GRANT command.
       Syntax:
       REVOKE SELECT, UPDATE ON MY_TABLE FROM USER1, USER2;  
-TCL => Transaction Control Language
 
 CREATE DATABASE Statement:
-  1.CREATE DATABASE database_name;
-  2.SHOW DATABASES;
-  3.USE database_name
-  4.DROP DATABASE data_base_name
-  5. Rename Database => ALTER DATABASE database_name MODIFY NAME = Example
+    1.CREATE DATABASE database_name;
+    2.SHOW DATABASES;
+    3.USE database_name
+    4.DROP DATABASE data_base_name
+    5. Rename Database => ALTER DATABASE database_name MODIFY NAME = Example
 
 CREATE TABLE
     1. CREATE TABLE Customer(
@@ -40,36 +43,49 @@ CREATE TABLE
       Age INT CHECK (Age >= 0 AND Age <= 99),
       Phone int(10)
   );
+
+CREATE INDEX indexname
+ON tablename (column1, column2, ...);
+CREATE UNIQUE INDEX indexname
+ON tablename (column1, column2, ...);
+DROP INDEX INDEXNAME;
+REINDEX INDEX INDEXNAME;
+
+DROP TABLE table_name;
+
   2. INSERT INTO Table_name(Column1, Column2, Column3)
     Values (Value1, value2, value3);
     //Below query adds data in table in sequence of column name(Value1 will be 
     added in Column1 and so on)// 
     INSERT INTO Table_name
     Values (Value1, value2, value3);
-  3. Create a Table Using Another Table
-    CREATE TABLE SubTable AS
-    SELECT CustomerID, CustomerName
-    FROM customer;
-4. Create Temporary Table:
-  CREATE TABLE #EmpDetails (id INT, name VARCHAR(25))
-DROP TABLE table_name;
-Deleting Single Record and multiple record
-  DELETE FROM GFG_Employees WHERE NAME = 'Rithvik';
-  DELETE * FROM GFG_EMPLOyees;
 
-ALTER:
-1. rename column name:
-1. ALter TABLE table_name
-    RENAME COLUMN old_name TO new_name;
-   ALTER TABLE Student RENAME name TO FIRST_NAME;
-2. Change the name of the table Student to Student_Details
-  ALTER TABLE student rename to student_details
-3. ALTER TABLE table_name
-    ADD column_name datatype;
-4. ALTER TABLE table_name
-  DROP COLUMN column_name;
-5. ALTER TABLE table_name
-  MODIFY column_name column_type;
+  3. UPDATE users
+    SET first_name = "prince", last_name = "giri"
+    WHERE id = 2;
+
+  4. DELETE FROM users
+    WHERE id = 2;
+
+
+ALTER table:
+Adds a new column to an existing table.
+ALTER TABLE TABLE_NAME
+ADD COLUMN_NMAE DATATYPE;
+ALTER TABLE TABLENAME
+DROP COLUMN COLUMNNAME;
+ALTER TABLE table_name
+MODIFY COLUMN column_name new_data_type;
+ALTER TABLE table_name
+CHANGE COLUMN old_column_name new_column_name new_data_type;
+ALTER TABLE TABLENAME
+ADD PRIMARY KEY (COLUMNNAME,...);
+ALTER TABLE TABLENAME
+DROP PRIMARY KEY;
+ALTER TABLE TABLENAME1 ADD FOREIGN KEY (COLUMN1) REFERENCES TABLENAME2(COLUMN2);
+ALTER TABLE TABLENAME DROP FOREIGN KEY FOREIGNKEY_NAME;
+RENAME TABLE OLD_TABLENAME TO NEW_TABLENAME;
+TRUNCATE TABLE TABLENAME;
 
 
 
