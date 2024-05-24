@@ -213,6 +213,7 @@ Differnce bt each and map in ruby:
   my_order.map { |item| item.gsub('medium', 'extra large') }
   #=> ["extra large Big Mac", "extra large fries", "extra large milkshake"]
   summarize:
+  While both methods iterate over a collection, the crucial distinction lies in their purposes: each is for iteration, while map is for transformation.
   Both map and collect are widely used in Ruby, and they offer the same functionality, so you can choose whichever you find more readable or suitable for your code style. They both provide a clean and concise way to transform elements in a collection.
 
   #include?, #any?, #many?, #none?, all? these method are apply on collection datatype only.
