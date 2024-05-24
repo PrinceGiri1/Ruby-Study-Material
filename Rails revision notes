@@ -69,6 +69,20 @@ Active Record:
 is an Object-Relational Mapping (ORM) layer for interacting with databases.
 It allows developers to work with database records as objects in their Ruby code,
 abstracting away much of the complexity of SQL queries and database operations.
+Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic.
+
+Object Relational Mapping: ORM, is a technique to easily stored and retrieved data from a database without writing SQL statements directly and with less overall database access code.
+1. map class with table
+2. map instance of class with row
+
+Naming Conventions;
+	Model Class - Singular with the first letter of each word capitalized (e.g., BookClub).
+	Database Table - Plural with underscores separating words (e.g., book_clubs).
+
+Schema Conventions;
+	1. Foreign keys - These fields should be named following the pattern singularized_table_name_id (e.g., item_id, order_id). These are the fields that
+	2. Primary keys - By default, Active Record will use an integer column named id as the table's primary key (bigint for PostgreSQL and MySQL, integer for SQLite). When using Active Record Migrations to create your tables, this column will be automatically created.
+
 
 Migration:
 Migrations are a feature of Active Record that allows you to evolve your database schema over time.
