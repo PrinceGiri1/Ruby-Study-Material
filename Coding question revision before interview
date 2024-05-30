@@ -45,3 +45,39 @@ end
 	puts start.chop!
 end
 ______________________________________________________________________________________________________________________________________________
+def reverse_the_string(str)
+  reverse_str = ""
+  (str.length - 1).downto(0) do |i|
+    reverse_str << str[i]
+  end
+  puts reverse_str
+end
+
+def reverse_the_string(str)
+  reverse_str = ""
+  (0...str.length).reverse_each do |i|
+    reverse_str << str[i]
+  end
+  puts reverse_str
+end
+
+def reverse_the_string(str)
+  length = str.length - 1
+  reverse_str = ""
+  i = length
+  while i >= 0
+    reverse_str << str[i]
+    i -= 1
+  end
+  reverse_str
+end
+
+def reverse_the_string(str)
+  length = str.length - 1
+  reverse_str = ""
+  for i in length.downto(0)
+    reverse_str << str[i]
+  end
+  reverse_str
+end
+__________________________________________________________________________________________________________________
