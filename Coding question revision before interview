@@ -1,0 +1,47 @@
+def second_highest_element(arr)
+	highest = arr[0]
+	second_highest = nil
+	arr.each do |num|
+		if num > highest
+			highest = num
+		end
+	end
+	arr.each do |num|
+		if highest != num
+			if second_highest == nil || num > second_highest
+				second_highest = num
+			end
+		end 
+	end
+end
+______________________________________________________________________________________________________________________________________________
+def find_second_lowest(arr)
+  first_lowest = arr[0]
+  second_lowest = nil
+
+  arr.each do |num|
+    if num < first_lowest
+      second_lowest = first_lowest
+      first_lowest = num
+    elsif num != first_lowest && (second_lowest.nil? || num < second_lowest)
+      second_lowest = num
+    end
+  end
+  second_lowest
+end
+______________________________________________________________________________________________________________________________________________
+puts "Entre the number:"
+num = gets.chomp()
+start = "*"
+for i in 0...num.to_i
+	puts start
+	start << "*"
+	if i == (num.to_i - 1)
+		start.chop!
+	end
+end
+
+(num.to_i - 2).downto(0) do
+	puts start.chop!
+end
+______________________________________________________________________________________________________________________________________________
