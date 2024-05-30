@@ -260,6 +260,12 @@ Proc:
   4. Returning from a Proc using return exits not just the Proc but also the method enclosing it.
   5. Useful for storing code blocks, passing them as objects, implementing custom control structures, or callbacks.
 _______________________________________________________________________________________________________________
+Authentication and authorization
+authentication is about verifying identity, and authorization is about granting permissions.
+Both are essential for securing web applications and ensuring users can only access the resources 
+and perform the actions they are allowed to.
+
+_________________________________________________________________________________________________________________
 def index_of_two_target_sum(arr, target)
   for i in 0..(arr.length - 1) 
     second = target - arr[i]
