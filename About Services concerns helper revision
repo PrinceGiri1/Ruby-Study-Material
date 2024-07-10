@@ -1,4 +1,17 @@
 Services:
+Concept: Keyword Arguments
+In Ruby, keyword arguments allow you to pass arguments to a method by specifying the parameter names along with their values.
+ This makes the code more readable and avoids errors that can arise from misordered arguments. Here’s a basic example:
+        def example_method(param1:, param2:)
+          puts "param1: #{param1}, param2: #{param2}"
+        end
+        
+        # Correct way to call the method with keyword arguments
+        example_method(param1: 'value1', param2: 'value2')
+        
+        # Incorrect way to call the method with positional arguments (raises an ArgumentError)
+        example_method('value1', 'value2')
+
 In Ruby, an initializer, defined by the initialize method, is automatically called when a new object of a class is created using the new method.
 It's responsible for setting up the initial state of the object, typically by initializing instance variables that define the object's attributes.
 The initialize method is flexible and allows for customized object initialization based on the provided arguments."
